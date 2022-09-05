@@ -527,7 +527,7 @@ a:hover {
 }
 .main-e .cop {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 }
 .main-e .cop .teal .bot {
   width: 90px;
@@ -589,7 +589,7 @@ a:hover {
 }
 .main-e .coh {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 }
 .main-e .coh .teal .bon {
   width: 90px;
