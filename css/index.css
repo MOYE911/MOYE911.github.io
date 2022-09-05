@@ -1,0 +1,30 @@
+body {
+  background-color: lightblue;
+  margin: 0;
+  padding: 0;
+}
+.wrap {
+  width: 1200px;
+  margin: 0 auto;
+}
+.jing {
+  width: 200px;
+  height: 200px;
+}
+.jing ul li {
+  height: 20px;
+}
+.jing ul li a {
+  color: black;
+}
+.css3 {
+  width: 200px;
+  height: 200px;
+}
+.css3 ul li {
+  width: 50px;
+  height: 20px;
+}
+.css3 ul li a {
+  color: black;
+}
