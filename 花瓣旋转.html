@@ -16,13 +16,13 @@
         }
 
         .pen {
-            width: 40vw;
-            height: 40vw;
+            width: 500px;
+            height: 500px;
             position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
+            left: 10vw;
+            /* right: 0; */
+            /* top: 0; */
+            bottom: 22vw;
             margin: auto;
             overflow: hidden;
             animation: ppp 5s linear infinite;
@@ -201,30 +201,120 @@
             width: 12vw;
             height: .25vw;
             position: absolute;
-            left: 0;
+            left: 20vw;
             right: 0;
-            top: 16vw;
+            top: 20vw;
             bottom: 0;
-            margin: auto;
+            /* margin: auto; */
             overflow: hidden;
             background: #E645D0;
+        }
+
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .bg {
+            width: 300px;
+            height: 300px;
+            /* background: #690c49;  */
+        }
+
+        .bg span {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            backface-visibility: hidden;
+            position: absolute;
+            animation-name: move;
+            animation-timing-function: cubic-bezier(0.4, 0, 1, 0.8);
+            animation-iteration-count: infinite;
+            animation-duration: 3s;
+            top: 10vw;
+            left: 10vw;
+            transform-origin: -4vmin center;
+        }
+
+        .bg span:nth-child(1) {
+            background: #35B0AB;
+            animation-delay: -0.5s;
+            opacity: 0;
+        }
+
+        .bg span:nth-child(2) {
+            background: #35B0AB;
+            animation-delay: -1s;
+            opacity: 0;
+        }
+
+        .bg span:nth-child(3) {
+            background: #C5F0A4;
+            animation-delay: -1.5s;
+            opacity: 0;
+        }
+
+        .bg span:nth-child(4) {
+            background: #226B80;
+            animation-delay: -2s;
+            opacity: 0;
+        }
+
+        .bg span:nth-child(5) {
+            background: #35B0AB;
+            animation-delay: -2.5s;
+            opacity: 0;
+        }
+
+        .bg span:nth-child(6) {
+            background: #104554;
+            animation-delay: -3s;
+            opacity: 0;
+        }
+
+        @keyframes move {
+            0% {
+                transform: scale(1) rotate(0deg) translate3d(0, 0, 1px);
+            }
+
+            30% {
+                opacity: 1;
+            }
+
+            100% {
+                z-index: 10;
+                transform: scale(0) rotate(360deg) translate3d(0, 0, 1px);
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="pen">
-        <div class="one"></div>
-        <div class="two"></div>
-        <div class="three"></div>
-        <div class="four"></div>
-        <div class="five"></div>
-        <div class="six"></div>
-        <div class="seven"></div>
-        <div class="eight"></div>
+    <div class="fl">
+        <div class="bg">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
-    <div class="ple">
-        <div class="pre"></div>
+
+    <div class="fr">
+        <div class="pen">
+            <div class="one"></div>
+            <div class="two"></div>
+            <div class="three"></div>
+            <div class="four"></div>
+            <div class="five"></div>
+            <div class="six"></div>
+            <div class="seven"></div>
+            <div class="eight"></div>
+        </div>
+        <div class="ple">
+            <div class="pre"></div>
+        </div>
     </div>
 </body>
 
