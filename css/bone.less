@@ -1,0 +1,215 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #161B29;
+}
+
+.cc {
+    .row {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .box {
+            margin: 0 auto;
+            margin-top: 20px;
+            height: 200px;
+
+            .pen {
+                width: 250px;
+                height: 250px;
+                // position: absolute;
+                left: -10vw;
+                /* right: 0; */
+                /* top: 0; */
+                bottom: -10vw;
+                margin: auto;
+                overflow: hidden;
+                animation: ppp 5s linear infinite;
+
+                .one {
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 7.5vw;
+                    transform: rotate(45deg);
+                    animation: moe 1s ease infinite;
+                }
+
+                .two {
+                    left: 5.5vw;
+                    right: 0;
+                    top: 0;
+                    bottom: 5.5vw;
+                    transform: rotate(90deg);
+                    animation: moe 1s ease infinite;
+                    animation-delay: 0.125s;
+                }
+
+                .three {
+                    left: 7.5vw;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    transform: rotate(135deg);
+                    animation: moe 1s ease infinite;
+                    animation-delay: 0.25s;
+                }
+
+                .four {
+                    left: 5.5vw;
+                    right: 0;
+                    top: 5.5vw;
+                    bottom: 0;
+                    transform: rotate(180deg);
+                    animation: moe 1s ease infinite;
+                    animation-delay: 0.375s;
+                }
+
+                .five {
+                    left: 0;
+                    right: 0;
+                    top: 7.5vw;
+                    bottom: 0;
+                    transform: rotate(225deg);
+                    animation: moe 1s ease infinite;
+                    animation-delay: 0.5s;
+                }
+
+                .six {
+                    left: 0;
+                    right: 5.5vw;
+                    top: 5.5vw;
+                    bottom: 0;
+                    transform: rotate(270deg);
+                    animation: moe 1s ease infinite;
+                    animation-delay: 0.627s;
+                }
+
+                .seven {
+                    left: 0;
+                    right: 7.5vw;
+                    top: 0;
+                    bottom: 0;
+                    transform: rotate(315deg);
+                    animation: moe 1s ease infinite;
+                    animation-delay: 0.7s;
+                }
+
+                .eight {
+                    left: 0;
+                    right: 5.5vw;
+                    top: 0;
+                    bottom: 5.5vw;
+                    transform: rotate(360deg);
+                    animation: moe 1s ease infinite;
+                    animation-delay: 0.825s;
+                }
+
+                @keyframes moe {
+
+                    0%,
+                    100% {}
+
+                    50% {
+                        box-shadow: inset 0vw 0vw 0vw .1vw #17E1E6, 0vw 0vw 1.5vw 0vw #17E1E6;
+                    }
+                }
+
+                @keyframes ppp {
+                    from {
+                        transform: rotate(0deg);
+                    }
+
+                    to {
+                        transform: rotate(-360deg);
+                    }
+                }
+            }
+
+            .pen>div {
+                height: 75px;
+                max-height: 100%;
+                overflow: auto;
+                width: 35px;
+                margin: auto;
+                max-width: 100%;
+                position: absolute;
+                border-radius: 0vw 10vw 0vw 10vw;
+                box-shadow: inset 0vw 0vw 0vw .1vw #E645D0, 0vw 0vw 1.5vw 0vw #E645D0;
+            }
+
+            .pre {
+                width: 180px;
+                height: 4px;
+                // position: absolute;
+                // left: 0;
+                // right: 0;
+                // top: 0;
+                // bottom: 0;
+                margin-left: -200px;
+                overflow: hidden;
+                background: #17E1E6;
+                animation: pre 10s ease infinite;
+            }
+
+            .ple {
+                width: 180px;
+                height: 3px;
+                // position: absolute;
+                // left: 20vw;
+                // right: 0;
+                // top: 20vw;
+                // bottom: 0;
+                margin: auto;
+                overflow: hidden;
+                background: #E645D0;
+            }
+
+            @keyframes pre {
+                0% {
+                    margin-left: -180px;
+                }
+
+                10% {
+                    margin-left: -160px;
+                }
+
+                30% {
+                    margin-left: -140px;
+                }
+
+                50% {
+                    margin-left: -100px;
+                }
+
+                65% {
+                    margin-left: -80px;
+                }
+
+                80% {
+                    margin-left: -40px;
+                }
+
+                100% {
+                    margin-left: 0px;
+                }
+            }
+
+            @keyframes out {
+                from {
+                    opacity: 1;
+                }
+
+                to {
+                    opacity: 0;
+                }
+            }
+
+            .out {
+                animation: out 2s 15s ease;
+            }
+        }
+    }
+}
