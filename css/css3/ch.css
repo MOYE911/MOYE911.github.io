@@ -1,0 +1,67 @@
+.chai {
+  border-bottom: solid 2px #757575;
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+}
+.chai .rainbow {
+  animation: spin 2s ease-in-out infinite;
+  height: 200px;
+  margin: 0 auto;
+  position: relative;
+  top: 100px;
+  width: 200px;
+}
+.chai .rainbow:after {
+  background-color: #161B29;
+  bottom: 100px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.chai .rainbow .apc {
+  border: solid 8px;
+  border-radius: 50%;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.chai .rainbow .red {
+  border-color: red;
+}
+.chai .rainbow .orange {
+  border-color: orange;
+  margin: 8px;
+}
+.chai .rainbow .yellow {
+  border-color: yellow;
+  margin: 16px;
+}
+.chai .rainbow .green {
+  border-color: yellowgreen;
+  margin: 24px;
+}
+.chai .rainbow .blue {
+  border-color: skyblue;
+  margin: 32px;
+}
+.chai .rainbow .violet {
+  border-color: violet;
+  margin: 40px;
+}
+.chai .rainbow .purple {
+  border-color: mediumpurple;
+  margin: 48px;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
