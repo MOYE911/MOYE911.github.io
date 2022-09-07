@@ -78,8 +78,8 @@ html {
   background-position: center;
 }
 .list .box ul li {
-  margin-top: 5rem;
   margin: auto;
+  margin-top: 5rem;
   position: relative;
 }
 .list .box ul li a {
