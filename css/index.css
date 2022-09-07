@@ -40,17 +40,58 @@ html {
   justify-content: center;
   align-items: center;
 }
+.list .box ul .f-bg {
+  background-image: url(../img/1.png);
+  background-size: cover;
+  background-position: center;
+}
+.list .box ul .er-bg {
+  background-image: url(../img/2.png);
+  background-size: cover;
+  background-position: center;
+}
+.list .box ul .hua-bg {
+  background-image: url("../img/3.png");
+  background-size: cover;
+  background-position: center;
+}
 .list .box ul li {
   margin-right: 10rem;
+  position: relative;
 }
 .list .box ul li a {
   display: block;
-  width: 80rem;
+  width: 150rem;
   height: 80rem;
 }
-.list .box ul li a img {
-  width: 50rem;
-  height: 50rem;
-  background-size: cover;
-  background-position: center;
+.list .box ul li a .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(129, 152, 152, 0.6);
+  border-radius: 10px;
+  transform: scale(0);
+  transition: all 0.5s;
+  text-align: center;
+}
+.list .box ul li a .mask .titl {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  color: white;
+  width: auto;
+  height: auto;
+}
+.list .box ul li a .mask .titl h4 {
+  margin-bottom: 10px;
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: bold;
+}
+.list .box ul li:hover .mask {
+  transform: scale(1);
 }

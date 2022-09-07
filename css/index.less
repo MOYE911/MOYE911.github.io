@@ -47,25 +47,73 @@ html {
             justify-content: center;
             align-items: center;
 
+            .f-bg {
+                background-image: url(../img/1.png);
+                background-size: cover;
+                background-position: center;
+            }
+
+            .er-bg {
+                background-image: url(../img/2.png);
+                background-size: cover;
+                background-position: center;
+            }
+
+            .hua-bg {
+                background-image: url("../img/3.png");
+                background-size: cover;
+                background-position: center;
+            }
+
             li {
                 // background-color: white;
                 margin-right: 10rem;
+                position: relative;
 
                 a {
                     display: block;
-                    width: 80rem;
+                    width: 150rem;
                     height: 80rem;
 
-                    img {
-                        width: 50rem;
-                        height: 50rem;
-                        background-size: cover;
-                        background-position: center;
+
+                    .mask {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(129, 152, 152, 0.6);
+                        border-radius: 10px;
+                        transform: scale(0);
+                        transition: all .5s;
+                        text-align: center;
+
+                        .titl {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+
+                            box-sizing: border-box;
+                            color: white;
+                            width: auto;
+                            height: auto;
+
+                            h4 {
+                                margin-bottom: 10px;
+                                font-size: 22px;
+                                line-height: 28px;
+                                font-weight: bold;
+                            }
+                        }
                     }
                 }
 
-                &:hover {}
-
+                &:hover {
+                    .mask {
+                        transform: scale(1);
+                    }
+                }
             }
         }
     }
