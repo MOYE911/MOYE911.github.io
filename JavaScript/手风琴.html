@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>javascript 阶段</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 850px;
+            height: 500px;
+            background-color: lightblue;
+            display: flex;
+            margin: 0 auto;
+            margin-top: 5%;
+        }
+
+        .box .ome {
+            width: 50px;
+            height: 100%;
+            background-size: auto 100%;
+            background-position: center;
+            transition: all 0.3s;
+        }
+
+        .box .ome:nth-child(1) {
+            background-image: url("../img/1.jpg");
+        }
+
+        .box .ome:nth-child(2) {
+            width: 700px;
+            background-image: url("../img/2.jpg");
+        }
+
+        .box .ome:nth-child(3) {
+            background-image: url("../img/3.jpg");
+        }
+
+        .box .ome:nth-child(4) {
+            background-image: url("../img/4.jpg");
+        }
+
+        .bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100vw;
+            height: 100vh;
+            /* 高斯模糊 */
+            filter: blur(2.3px);
+        }
+
+        .box .ome:nth-child(1) .bg {
+            background-image: url("../img/1.jpg");
+            background-position: center;
+            opacity: 0;
+        }
+
+        .box .ome:nth-child(2) .bg {
+            background-image: url("../img/2.jpg");
+            background-position: center;
+            opacity: 1;
+        }
+
+        .box .ome:nth-child(3) .bg {
+            background-image: url("../img/3.jpg");
+            background-position: center;
+            opacity: 0;
+        }
+
+        .box .ome:nth-child(4) .bg {
+            background-image: url("../img/4.jpg");
+            background-position: center;
+            opacity: 0;
+        }
+
+        .bg img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="ome">
+            <div class="bg"></div>
+        </div>
+        <div class="ome">
+            <div class="bg"></div>
+        </div>
+        <div class="ome">
+            <div class="bg"></div>
+        </div>
+        <div class="ome">
+            <div class="bg"></div>
+        </div>
+    </div>
+
+    <script>
+        var imgs = document.querySelectorAll(".box .ome");
+        var met = document.querySelectorAll(".box .ome .bg");
+
+        imgs.forEach(function (img, i) {
+            img.onclick = function () {
+                imgs.forEach(function (mun, index) {
+                    if (index == i) {
+                        mun.style.width = "700px";
+                    } else {
+                        mun.style.width = "50px";
+                    }
+                });
+                met.forEach(function (met, meta) {
+                    if (meta == i) {
+                        met.style.opacity = "1";
+                    } else {
+                        met.style.opacity = "0";
+                    }
+                });
+            };
+        })
+    </script>
+</body>
+
+</html>

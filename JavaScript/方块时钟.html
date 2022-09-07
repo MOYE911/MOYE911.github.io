@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOYE</title>
+</head>
+<style>
+    body {
+        background-color: black;
+    }
+
+    .box {
+        display: flex;
+        justify-content: center;
+        margin-top: 15%;
+    }
+
+    .box .hour,
+    .box .minute,
+    .box .second {
+        width: 200px;
+        height: 300px;
+        display: flex;
+    }
+
+    .box .hour .h1,
+    .box .hour .h2,
+    .box .minute .m1,
+    .box .minute .m2,
+    .box .second .s1,
+    .box .second .s2 {
+        width: 100px;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+    }
+
+    .box .hour .h1 i,
+    .box .hour .h2 i,
+    .box .minute .m1 i,
+    .box .minute .m2 i,
+    .box .second .s1 i,
+    .box .second .s2 i {
+        width: 30%;
+        height: 30px;
+        outline: 1px solid black;
+        background-color: #fff;
+        transition: all .3s;
+        opacity: 0;
+    }
+
+    .box .hour .h1 i.active,
+    .box .hour .h2 i.active,
+    .box .minute .m1 i.active,
+    .box .minute .m2 i.active,
+    .box .second .s1 i.active,
+    .box .second .s2 i.active {
+        opacity: 1;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="hour">
+            <div class="h1"></div>
+            <div class="h2"></div>
+        </div>
+        <div class="minute">
+            <div class="m1"></div>
+            <div class="m2"></div>
+        </div>
+
+        <div class="second">
+            <div class="s1"></div>
+            <div class="s2"></div>
+        </div>
+    </div>
+
+    <script>
+        var s1 = document.querySelector(".box .second .s1");
+        var s2 = document.querySelector(".box .second .s2");
+        var h1 = document.querySelector(".box .hour .h1");
+        var h2 = document.querySelector(".box .hour .h2");
+        var m1 = document.querySelector(".box .minute .m1");
+        var m2 = document.querySelector(".box .minute .m2");
+
+        // 二维数组显示0-9
+        var nums = [
+            [
+                [1, 1, 1],
+                [1, 0, 1],
+                [1, 0, 1],
+                [1, 0, 1],
+                [1, 1, 1],
+            ],
+            [
+                [0, 0, 1],
+                [0, 0, 1],
+                [0, 0, 1],
+                [0, 0, 1],
+                [0, 0, 1],
+            ],
+            [
+                [1, 1, 1],
+                [0, 0, 1],
+                [1, 1, 1],
+                [1, 0, 0],
+                [1, 1, 1],
+            ],
+            [
+                [1, 1, 1],
+                [0, 0, 1],
+                [1, 1, 1],
+                [0, 0, 1],
+                [1, 1, 1],
+            ],
+            [
+                [1, 0, 1],
+                [1, 0, 1],
+                [1, 1, 1],
+                [0, 0, 1],
+                [0, 0, 1],
+            ],
+            [
+                [1, 1, 1],
+                [1, 0, 0],
+                [1, 1, 1],
+                [0, 0, 1],
+                [1, 1, 1],
+            ],
+            [
+                [1, 1, 1],
+                [1, 0, 0],
+                [1, 1, 1],
+                [1, 0, 1],
+                [1, 1, 1],
+            ],
+            [
+                [1, 1, 1],
+                [0, 0, 1],
+                [0, 0, 1],
+                [0, 0, 1],
+                [0, 0, 1],
+            ],
+            [
+                [1, 1, 1],
+                [1, 0, 1],
+                [1, 1, 1],
+                [1, 0, 1],
+                [1, 1, 1],
+            ],
+            [
+                [1, 1, 1],
+                [1, 0, 1],
+                [1, 1, 1],
+                [0, 0, 1],
+                [1, 1, 1],
+            ]
+        ];
+
+        // 初始化时间
+        function start(ele, n) {
+            // 外层数组循环
+            nums[n].forEach(function (row, rowi) {
+                // 内层数组循环
+                row.forEach(function (item, i) {
+                    // 数组内每个项都创建i标签
+                    var node = document.createElement("i");
+                    if (item) {
+                        //内层数组内值为1的添加active类名
+                        node.classList.add("active");
+                    }
+                    ele.appendChild(node);
+                });
+            });
+        }
+        start(s1, 0);
+        start(s2, 0);
+        start(h1, 0);
+        start(h2, 0);
+        start(m1, 0);
+        start(m2, 0);
+
+        // 显示方法 传入对应的元素和时间
+        function showNums(element, d) {
+            // 获取元素内所有的i
+            var dots = element.querySelectorAll("i");
+            nums[d].forEach(function (row, rowi) {
+                row.forEach(function (item, i) {
+                    if (item) {
+                        // 要显示的数字所对应的下标,并添加类名
+                        dots[rowi * 3 + i].classList.add("active");
+                    } else {
+                        // 没有的则移除类名
+                        dots[rowi * 3 + i].classList.remove("active");
+                    }
+                });
+            });
+        }
+
+        // 设置定时器
+        setInterval(function () {
+            // 获取当前时间
+            var now = new Date();
+            // 获取秒
+            var s = String(now.getSeconds()).padStart(2, "0");
+            // 获取时
+            var h = String(now.getHours()).padStart(2, "0");
+            // 获取分
+            var m = String(now.getMinutes()).padStart(2, "0");
+
+            // 秒
+            showNums(s1, s[0]);
+            showNums(s2, s[1]);
+
+            // 时
+            showNums(h1, h[0]);
+            showNums(h2, h[1]);
+
+            // 分
+            showNums(m1, m[0]);
+            showNums(m2, m[1]);
+        }, 1000)
+    </script>
+</body>
+
+</html>

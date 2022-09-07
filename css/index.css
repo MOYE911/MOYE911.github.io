@@ -29,6 +29,7 @@ html {
   position: relative;
 }
 .list .box {
+  width: 370rem;
   position: absolute;
   z-index: 1;
   text-align: center;
@@ -39,6 +40,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 .list .box ul .f-bg {
   background-image: url(../img/1.png);
@@ -55,8 +57,29 @@ html {
   background-size: cover;
   background-position: center;
 }
+.list .box ul .jiu-bg {
+  background-image: url("../img/4.png");
+  background-size: cover;
+  background-position: center;
+}
+.list .box ul .fang-bg {
+  background-image: url("../img/5.png");
+  background-size: cover;
+  background-position: center;
+}
+.list .box ul .shou-bg {
+  background-image: url("../img/6.png");
+  background-size: cover;
+  background-position: center;
+}
+.list .box ul .dao-bg {
+  background-image: url("../img/7.png");
+  background-size: cover;
+  background-position: center;
+}
 .list .box ul li {
-  margin-right: 10rem;
+  margin-top: 5rem;
+  margin: auto;
   position: relative;
 }
 .list .box ul li a {

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>javascript 阶段</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("../img/1.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+
+        .wrap {
+            width: 520px;
+            margin: 0 auto;
+            margin-top: 260px;
+        }
+
+        .wrap::after {
+            width: 100%;
+            height: 100%;
+            content: "";
+            position: absolute;
+            background-color: #ff9900;
+            opacity: 0.75;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        h2 {
+            color: white;
+            text-align: center;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            list-style: none;
+        }
+
+        li {
+            width: 110px;
+            height: 150px;
+            padding: 0 10px;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: white;
+            font-weight: 900;
+        }
+
+        span {
+            display: block;
+            width: 100px;
+            opacity: 0.8;
+            font-size: 20px;
+            font-weight: 900;
+            color: white;
+            text-align: center;
+            padding: 50px 5px;
+
+            position: absolute;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h2>距离2040年1月1日</h2>
+        <ul>
+            <li>
+                <p>DAYS</p>
+                <span class="day"></span>
+            </li>
+            <li>
+                <p>HOURS</p>
+                <span class="hour"></span>
+            </li>
+            <li>
+                <p>MINUTES</p>
+                <span class="minute"></span>
+            </li>
+            <li>
+                <p>SECOUNDS</p>
+                <span class="second"></span>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        var day = document.querySelector(".wrap .day");
+        var hour = document.querySelector(".wrap .hour");
+        var minute = document.querySelector(".wrap .minute");
+        var second = document.querySelector(".wrap .second");
+        var oldertime = new Date(2040, 01, 01);
+        var i = 0;
+        countDown();
+        var timer = null;
+        timer = setInterval(countDown, 1000);
+
+        function countDown(time) {
+            var nowTime = new Date();
+            var times = (oldertime - nowTime) / 1000;
+            // console.log(times);
+
+            var D = parseInt(times / 60 / 60 / 24);
+            var H = parseInt(times / 60 / 60 % 24);
+            var M = parseInt(times / 60 % 60);
+            var S = parseInt(times % 60);
+
+            // console.log(D,H,M,S);
+
+            day.innerHTML = D;
+            hour.innerHTML = H;
+            minute.innerHTML = M;
+            second.innerHTML = S;
+        }
+
+
+    </script>
+</body>
+
+</html>

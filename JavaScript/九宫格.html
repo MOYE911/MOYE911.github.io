@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MOYE</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(78, 94, 118);
+        }
+
+        .clear:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .box {
+            width: 320px;
+            height: 320px;
+            margin: 0 auto;
+            margin-top: 50px;
+            position: relative;
+        }
+
+        #nub {
+            box-sizing: border-box;
+            width: 320px;
+            height: 50px;
+            border-radius: 2px;
+            text-align: center;
+            padding: 15px 5px;
+            box-shadow: 0 0 0 2px rgba(67, 64, 64, 0.3);
+            margin: 0 auto;
+            margin-top: 150px;
+        }
+
+        .box span {
+            box-sizing: border-box;
+            display: block;
+            width: 100px;
+            height: 100px;
+            background-color: cadetblue;
+            text-align: center;
+            padding: 35px 25px;
+            margin-left: 5px;
+            margin-bottom: 5px;
+            position: absolute;
+            color: white;
+        }
+
+        .box .aa {
+            background-color: gray;
+        }
+
+        .box span:nth-child(1) {
+            top: 0;
+            left: 0;
+        }
+
+        .box span:nth-child(2) {
+            top: 0;
+            left: 110px;
+        }
+
+        .box span:nth-child(3) {
+            top: 0;
+            left: 220px;
+        }
+
+        .box span:nth-child(4) {
+            top: 110px;
+            left: 220px;
+        }
+
+        .box span:nth-child(5) {
+            top: 220px;
+            left: 220px;
+        }
+
+        .box span:nth-child(6) {
+            top: 220px;
+            left: 110px;
+        }
+
+        .box span:nth-child(7) {
+            top: 220px;
+            left: 0px;
+        }
+
+        .box span:nth-child(8) {
+            top: 110px;
+            left: 0px;
+        }
+
+        .box span:nth-child(9) {
+            top: 110px;
+            left: 110px;
+            cursor: pointer;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p id="nub"></p>
+    <div class="box">
+        <span class="aa">手机</span>
+        <span>平板</span>
+        <span>电磁炉</span>
+        <span>洗衣机</span>
+        <span>衣柜</span>
+        <span>冰箱</span>
+        <span>电脑</span>
+        <span>电视</span>
+        <span>开始</span>
+    </div>
+
+    <script>
+        var box = document.querySelector(".box");
+        var span = document.querySelectorAll("span");
+        var p = document.getElementById("nub");
+        function str() {
+            var zh = 0;
+            var num = -1;
+            var time = parseInt(Math.random() * 10 + 20);
+            span.forEach(function (span, onld) {
+                if (!onld == 0) {
+                    span.classList.remove("aa");
+                }
+            });
+            span[8].style.pointerEvents = "none";
+
+            men = setInterval(function () {
+                num++;
+                zh++;
+                if (num > 7) {
+                    num = 0;
+                    span[0].classList.add("aa");
+                    span[7].classList.remove("aa");
+                } else if (num == 0) {
+                    span[num].classList.add("aa");
+                    span[7].classList.remove("aa");
+                }
+                else {
+                    span[num].classList.add("aa");
+                    span[num - 1].classList.remove("aa");
+                }
+                if (zh > time) {
+                    clearInterval(men);
+                    console.log(span[num]);
+                    p.textContent = "抽中了" + span[num].textContent + "!";
+                    span[8].style.pointerEvents = "all";
+                }
+            }, 100);
+        }
+        span[8].onclick = str;
+
+    </script>
+
+</body>
+
+</html>
