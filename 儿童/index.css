@@ -114,7 +114,15 @@ body {
 }
 .header .head .box-c .wrap .box-bu .bu-r a i {
   font-size: 20px;
-  color: green;
+}
+.header .head .box-c .wrap .box-bu .bu-r a:nth-child(1) {
+  color: #16c3b0;
+}
+.header .head .box-c .wrap .box-bu .bu-r a:nth-child(2) {
+  color: #71bc42;
+}
+.header .head .box-c .wrap .box-bu .bu-r a:nth-child(3) {
+  color: #fdb62f;
 }
 .header .box-b .wrap .b-l {
   float: left;
