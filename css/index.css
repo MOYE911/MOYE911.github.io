@@ -77,6 +77,11 @@ html {
   background-size: cover;
   background-position: center;
 }
+.list .box ul .llq360 {
+  background-image: url("../img/8.png");
+  background-size: cover;
+  background-position: center;
+}
 .list .box ul li {
   margin: auto;
   margin-top: 5rem;
