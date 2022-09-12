@@ -82,6 +82,11 @@ html {
   background-size: cover;
   background-position: center;
 }
+.list .box ul .jia-bg {
+  background-image: url("../img/9.png");
+  background-size: cover;
+  background-position: center;
+}
 .list .box ul li {
   margin: auto;
   margin-top: 5rem;
