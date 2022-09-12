@@ -87,6 +87,11 @@ html {
   background-size: cover;
   background-position: center;
 }
+.list .box ul .fdj-bg {
+  background-image: url("../img/10.png");
+  background-size: cover;
+  background-position: center;
+}
 .list .box ul li {
   margin: auto;
   margin-top: 5rem;
