@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh_cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MOYE</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: skyblue;
+        }
+
+        .box {
+            width: 400px;
+            height: 520px;
+            background-color: white;
+            margin: 40px auto;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid black;
+        }
+
+        .scroll {
+            width: 400px;
+            height: 0px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .scroll ul {
+            list-style: none;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .scroll ul li {
+            box-sizing: border-box;
+            float: left;
+            width: 100px;
+            height: 130px;
+            border: 1px solid black;
+            caret-color: transparent;
+        }
+
+        .start {
+            box-sizing: border-box;
+            width: 400px;
+            height: 520px;
+            position: absolute;
+            z-index: 666;
+            text-align: center;
+            background-color: rgba(135, 206, 235,0.8);
+            font-size: 50px;
+            line-height: 520px;
+            font-weight: 900;
+            color: white;
+        }
+
+        .start p {
+            width: 400px;
+            height: 100px;
+            color: black;
+            margin: 0;
+        }
+
+        .start p .b {
+            color: white;
+            border: none;
+            padding: 0;
+        }
+
+        .start span {
+            /* line-height: 520px; */
+            cursor: pointer;
+            color: white;
+            border: 2px solid red;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="scroll">
+        </div>
+        <div class="start">
+            <p>别踩<span class="b">白</span>块</p>
+            <span>开始游戏</span>
+        </div>
+    </div>
+
+    <script>
+        var box = document.querySelector(".box");
+        var scroll = document.querySelector(".scroll");
+        var start = document.querySelector(".start")
+        var li = document.querySelector(".start ul li")
+
+        // var times = null;
+        start.onclick = function () {
+            this.style.display = 'none';
+            scroll.innerHTML = "";
+            startgame()
+        };
+
+        function startgame() {
+            var speed = 3;
+            var score = 0;
+
+            times = setInterval(function () {
+                scroll.style.top = scroll.offsetTop + speed + "px";
+                if (scroll.offsetTop >= 0) {
+                    createnew();
+                    scroll.style.top = "-130px";
+                }
+                scroll.onclick = function (n) {
+                    var target = n.target;
+                    if (target.className == "tag") {
+                        target.style.backgroundColor = "skyblue";
+                        target.className = "";
+                        score++;
+                    } else {
+                        scroll.style.top = 0;
+                        start.innerHTML = "得分:" + score;
+                        start.style.linkHeight = "520px";
+                        target.style.backgroundColor = "red"
+                        clearInterval(times);
+                        start.style.display = "block";
+                    }
+                    if (score % 20 == 0) {
+                        speed++;
+                    }
+                }
+                if (scroll.children.length == 6) {
+                    for (var i = 0; i < 4; i++) {
+                        if (scroll.children[scroll.children.length - 1].children[i].className == "tag") {
+                            scroll.style.top = "-130px";
+                            // start.innerHTML = "GAME OVER";
+                            start.innerHTML = "得分:" + score;
+                            clearInterval(times);
+                            start.style.display = "block";
+                        }
+                    }
+                    scroll.removeChild(scroll.children[scroll.children.length - 1]);
+                }
+            }, 10)
+        }
+
+        function createnew() {
+            var row = document.createElement("ul");
+            var index = randomnum(0, 3);
+            for (var i = 0; i < 4; i++) {
+                var ku = document.createElement("li");
+                row.appendChild(ku);
+            }
+            if (scroll.children.length == 0) {
+                scroll.appendChild(row)
+            } else {
+                scroll.insertBefore(row, scroll.children[0])
+            }
+            row.children[index].style.backgroundColor = "black";
+            row.children[index].className = "tag"
+        }
+        function randomnum(m, n) {
+            return parseInt(Math.random() * (n - m + 1)) + m;
+        }
+    </script>
+</body>
+
+</html>
